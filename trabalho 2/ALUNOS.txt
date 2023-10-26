@@ -1,0 +1,9 @@
+ALUNO: RAFAEL COLOMBO MIRANDA
+RA: 2412381
+ALUNO: GABRIEL WENNINGKAMP
+RA:2388081
+
+Nossa função DFS não está funcionando. Logo, a entrada 'regiaoes' não está funcionando corretamente. 
+Caso 'cam' não identifica quando deve haver caminho.
+Todas as funções principais foram escritas na main.c, deixando header e .c de fila dinamica separadas.
+
