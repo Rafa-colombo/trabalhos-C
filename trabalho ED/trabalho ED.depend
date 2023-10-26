@@ -1,0 +1,46 @@
+# depslib dependency file v1.0
+1684448733 source:c:\users\rafae\onedrive\documentos\ed\trabalho ed\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"anime.h"
+	"pilha_dinamica.h"
+
+1684448733 source:c:\users\rafae\onedrive\documentos\ed\trabalho ed\fila_dinamica.c
+	"fila_dinamica.h"
+
+1684448092 c:\users\rafae\onedrive\documentos\ed\trabalho ed\fila_dinamica.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1684448092 source:c:\users\rafae\onedrive\documentos\ed\trabalho ed\fila_estatica.c
+	"fila_estatica.h"
+
+1684448092 c:\users\rafae\onedrive\documentos\ed\trabalho ed\fila_estatica.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1684448092 source:c:\users\rafae\onedrive\documentos\ed\trabalho ed\pilha_estatica.c
+	"pilha_estatica.h"
+
+1684452280 c:\users\rafae\onedrive\documentos\ed\trabalho ed\anime.h
+	"fila_dinamica.h"
+	<string.h>
+
+1684448092 c:\users\rafae\onedrive\documentos\ed\trabalho ed\pilha_estatica.h
+	"anime.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1684447758 source:c:\users\rafae\onedrive\documentos\ed\trabalho ed\anime.c
+	"anime.h"
+
+1684448092 c:\users\rafae\onedrive\documentos\ed\trabalho ed\pilha_dinamica.h
+	"anime.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
