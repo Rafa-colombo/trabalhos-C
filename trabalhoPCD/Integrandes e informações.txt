@@ -1,7 +1,0 @@
-Alunos: Rafael Colombo Miranda, Gabriel Wenningkamp
-RA: 2412381, 2388081
-
-
--Programa contem um bug conhecido: Ao retirar todos nodos da trie(esvaziar o banco de dados) o comando printar "p" cracha.
-
-A implementação consistiu em: ler um .txt que contem o banco de dados de um Banco, realizar a escrita desses dados em uma trie, fazer as funções de manipulação na trie e, por fim, salvar os dados finais da trie no banco de dados novamente.
