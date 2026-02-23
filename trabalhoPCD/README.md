@@ -1,38 +1,39 @@
 # Sistema de Cadastros com Árvore Trie (C)
 
-Este projeto apresenta um sistema de gerenciamento de perfis desenvolvido em C. A aplicação utiliza uma Árvore de Prefixos (Trie) para armazenar os dados em memória, garantindo alta performance nas operações de manipulação. Além disso, o programa conta com um mecanismo de persistência que sincroniza o estado atual da árvore com um arquivo de texto local.
+Este projeto consiste na implementação, em C, de um sistema de cadastros. Os dados dos usuários são gerenciados através de uma estrutura de dados de Árvore de Prefixos (Trie), permitindo operações eficientes de busca, inserção e remoção. O sistema possui persistência de dados, lendo e salvando as informações em um arquivo de texto chamado banco.txt.
 
 ## 📌 Estrutura de Dados
 
-A arquitetura do projeto baseia-se na alocação dinâmica de nós em uma Trie.
-* **Chave de Busca (ID):** String exclusiva formada por letras minúsculas (limite de 30 caracteres) que define o caminho na árvore.
-* **Nó Terminal:** Aponta para uma estrutura de dados que guarda as informações do usuário.
-* **Dados do Usuário:** Compreendem o Nome Completo (string de até 1000 caracteres, aceitando espaços e variação de caixa) e a Idade (valor numérico até 99).
+Os cadastros devem ser armazenados e manipulados em uma árvore de prefixos (trie) de acordo com seus IDs. 
+
+* O campo ID é uma string aleatória única com letras minúsculas, possuindo no máximo 30 caracteres.
+* Cada nodo terminal contém um ponteiro para uma struct contendo o cadastro completo.
+* O cadastro completo armazena o Nome Completo (string com maiúsculas, minúsculas e espaços, de até 1000 caracteres) e a Idade (inteiro de até 99 anos).
 
 ## ⚙️ Funcionalidades e Comandos
 
-A interação com o sistema ocorre via terminal, utilizando uma série de comandos específicos:
+Todo comando deve ser processado a partir da trie. O programa deve ser uma sequência de comandos do usuário, onde cada comando pode ser:
 
-* **`? [ID]` (Consultar):** Varre a Trie em busca do identificador. Retorna os dados do usuário ou avisa se o registro for inexistente.
-* **`+ [ID] [Nome Completo] [Idade]` (Adicionar):** Aloca um novo usuário na estrutura em memória.
-* **`- [ID]` (Excluir):** Apaga o registro correspondente ao identificador informado.
-* **`P` (Listar):** Percorre toda a árvore e exibe todos os usuários ativos no momento.
-* **`S` (Sincronizar):** Sobrescreve o arquivo de banco de dados, salvando exclusivamente os registros que estão na memória durante a execução do comando.
-* **`F` (Sair):** Encerra o programa de forma segura, acionando a liberação total da memória alocada dinamicamente.
+* **`? [ID]` (Busca):** Busca na estrutura de dados o cadastro com dado ID. Imprime os dados caso encontrado ou uma mensagem de erro indicando que não foi encontrado.
+* **`+ [ID] [Nome Completo] [Idade]` (Inserção):** Insere um novo cadastro na estrutura de dados.
+* **`- [ID]` (Remoção):** Remove da estrutura de dados o cadastro com dado ID. Imprime mensagem confirmando a remoção ou erro se não existir.
+* **`P` (Impressão):** Imprime todos os cadastros na estrutura de dados, um por linha.
+* **`S` (Salvar):** Salva todos os cadastros que estão na estrutura de dados no arquivo `banco.txt`. O arquivo é reconstruído "do zero", apenas com os cadastros que estão na estrutura no momento em que o comando é lido.
+* **`F` (Finalizar):** Termina a execução. O programa libera toda a memória utilizada ao final da execução.
 
-## 📂 Formato do Banco de Dados (`banco.txt`)
+## 📂 Formato do Arquivo de Dados (banco.txt)
 
-O armazenamento persistente é feito em um arquivo de texto simples. A primeira linha deve obrigatoriamente informar o número total de registros. As linhas subsequentes contêm os dados separados por espaço.
+O arquivo contém uma coleção de cadastros de usuários. A primeira linha do arquivo contém um inteiro indicando a quantidade de usuários cadastrados. Cada uma das próximas linhas contém um cadastro, no formato `[ID] [Nome Completo] [Idade]`.
 
-**Modelo de estruturação:**
-```text
-5
-afd James Paul McCartney 81
-dwiz Richard Starkey 83
-afdg John Winston Ono Lennon 40
-dafd Larissa de Macedo Machado 30
-dwiop George Harrison 58
-```
+**Exemplo de formatação inicial do banco.txt:**
+  ```text
+  5
+  afd James Paul McCartney 81
+  dwiz Richard Starkey 83
+  afdg John Winston Ono Lennon 40
+  dafd Larissa de Macedo Machado 30
+  dwiop George Harrison 58
+  ```
 
 ##  🚀 Como Executar
 1. Clone o repositório.
