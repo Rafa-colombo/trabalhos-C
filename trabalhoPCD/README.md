@@ -1,46 +1,46 @@
 # Sistema de Cadastros com Árvore Trie (C)
 
-[cite_start]Este projeto consiste na implementação, em C, de um sistema de cadastros[cite: 3]. [cite_start]Os dados dos usuários são gerenciados através de uma estrutura de dados de Árvore de Prefixos (Trie), permitindo operações eficientes de busca, inserção e remoção[cite: 85]. [cite_start]O sistema possui persistência de dados, lendo e salvando as informações em um arquivo de texto chamado `banco.txt`[cite: 3, 28].
+Este projeto apresenta um sistema de gerenciamento de perfis desenvolvido em C. A aplicação utiliza uma Árvore de Prefixos (Trie) para armazenar os dados em memória, garantindo alta performance nas operações de manipulação. Além disso, o programa conta com um mecanismo de persistência que sincroniza o estado atual da árvore com um arquivo de texto local.
 
 ## 📌 Estrutura de Dados
 
-[cite_start]Os cadastros devem ser armazenados e manipulados em uma árvore de prefixos (trie) de acordo com seus IDs[cite: 85]. 
-* [cite_start]O campo ID é uma string aleatória única com letras minúsculas [cite: 6][cite_start], possuindo no máximo 30 caracteres[cite: 116].
-* [cite_start]Cada nodo terminal contém um ponteiro para uma struct contendo o cadastro completo[cite: 86].
-* [cite_start]O cadastro completo armazena o Nome Completo (string com maiúsculas, minúsculas e espaços [cite: 7][cite_start], de até 1000 caracteres [cite: 117][cite_start]) e a Idade (inteiro [cite: 7] [cite_start]de até 99 anos [cite: 117]).
+A arquitetura do projeto baseia-se na alocação dinâmica de nós em uma Trie.
+* **Chave de Busca (ID):** String exclusiva formada por letras minúsculas (limite de 30 caracteres) que define o caminho na árvore.
+* **Nó Terminal:** Aponta para uma estrutura de dados que guarda as informações do usuário.
+* **Dados do Usuário:** Compreendem o Nome Completo (string de até 1000 caracteres, aceitando espaços e variação de caixa) e a Idade (valor numérico até 99).
 
 ## ⚙️ Funcionalidades e Comandos
 
-[cite_start]Todo comando deve ser processado a partir da trie[cite: 113]. [cite_start]O programa deve ser uma sequência de comandos do usuário, onde cada comando pode ser[cite: 18]:
+A interação com o sistema ocorre via terminal, utilizando uma série de comandos específicos:
 
-* **`? [cite_start][ID]` (Busca):** Busca na estrutura de dados o cadastro com dado ID[cite: 19]. [cite_start]Imprime os dados caso encontrado ou uma mensagem de erro indicando que não foi encontrado[cite: 20].
-* [cite_start]**`+ [ID] [Nome Completo] [Idade]` (Inserção):** Insere um novo cadastro na estrutura de dados[cite: 21].
-* [cite_start]**`- [ID]` (Remoção):** Remove da estrutura de dados o cadastro com dado ID[cite: 24]. [cite_start]Imprime mensagem confirmando a remoção ou erro se não existir[cite: 25, 26].
-* [cite_start]**`P` (Impressão):** Imprime todos os cadastros na estrutura de dados, um por linha[cite: 27].
-* [cite_start]**`S` (Salvar):** Salva todos os cadastros que estão na estrutura de dados no arquivo `banco.txt`[cite: 28]. [cite_start]O arquivo é reconstruído "do zero", apenas com os cadastros que estão na estrutura no momento em que o comando é lido[cite: 29].
-* [cite_start]**`F` (Finalizar):** Termina a execução[cite: 31]. [cite_start]O programa libera toda a memória utilizada ao final da execução[cite: 118].
+* **`? [ID]` (Consultar):** Varre a Trie em busca do identificador. Retorna os dados do usuário ou avisa se o registro for inexistente.
+* **`+ [ID] [Nome Completo] [Idade]` (Adicionar):** Aloca um novo usuário na estrutura em memória.
+* **`- [ID]` (Excluir):** Apaga o registro correspondente ao identificador informado.
+* **`P` (Listar):** Percorre toda a árvore e exibe todos os usuários ativos no momento.
+* **`S` (Sincronizar):** Sobrescreve o arquivo de banco de dados, salvando exclusivamente os registros que estão na memória durante a execução do comando.
+* **`F` (Sair):** Encerra o programa de forma segura, acionando a liberação total da memória alocada dinamicamente.
 
-## 📂 Formato do Arquivo de Dados (`banco.txt`)
+## 📂 Formato do Banco de Dados (`banco.txt`)
 
-[cite_start]O arquivo contém uma coleção de cadastros de usuários[cite: 3]. [cite_start]A primeira linha do arquivo contém um inteiro indicando a quantidade de usuários cadastrados[cite: 4]. [cite_start]Cada uma das próximas linhas contém um cadastro, no formato `[ID] [Nome Completo] [Idade]`[cite: 5].
+O armazenamento persistente é feito em um arquivo de texto simples. A primeira linha deve obrigatoriamente informar o número total de registros. As linhas subsequentes contêm os dados separados por espaço.
 
-**Exemplo de formatação inicial do `banco.txt`:**
-  ```text
-  5
-  afd James Paul McCartney 81
-  dwiz Richard Starkey 83
-  afdg John Winston Ono Lennon 40
-  dafd Larissa de Macedo Machado 30
-  dwiop George Harrison 58
-  ```
+**Modelo de estruturação:**
+```text
+5
+afd James Paul McCartney 81
+dwiz Richard Starkey 83
+afdg John Winston Ono Lennon 40
+dafd Larissa de Macedo Machado 30
+dwiop George Harrison 58
+```
 
 ##  🚀 Como Executar
-Clone o repositório.
+1. Clone o repositório.
 
-Certifique-se de ter um compilador C (como o gcc) instalado.
+2. Certifique-se de ter um compilador C (como o gcc) instalado.
 
-Compile o código-fonte principal.
+3. Compile o código-fonte principal.
 
-Crie um arquivo banco.txt no mesmo diretório do executável, seguindo a formatação exigida.
+4. Crie um arquivo banco.txt no mesmo diretório do executável, seguindo a formatação exigida.
 
-Execute o programa e insira os comandos no terminal.
+5. Execute o programa e insira os comandos no terminal.
